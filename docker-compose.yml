@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: fish
+      POSTGRES_PASSWORD: fishpass
+      POSTGRES_DB: fishlog
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fish -d fishlog"]
+      interval: 5s
+      retries: 10
+
+  app:
+    build: ./app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://fish:fishpass@db:5432/fishlog
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db-data:
