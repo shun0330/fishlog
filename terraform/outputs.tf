@@ -29,3 +29,11 @@ output "db_endpoint" {
 output "db_secret_arn" {
   value = aws_db_instance.main.master_user_secret[0].secret_arn
 }
+
+output "ecr_repository_url" {
+  value = aws_ecr_repository.app.repository_url
+}
+
+output "alb_url" {
+  value = "http://${aws_lb.main.dns_name}"
+}
