@@ -1,0 +1,55 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(terraform fmt:*)",
+      "Bash(terraform init:*)",
+      "Bash(terraform validate:*)",
+      "Bash(terraform plan:*)",
+      "Bash(terraform output:*)",
+      "Bash(terraform state list:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(docker compose:*)",
+      "Bash(aws sts get-caller-identity:*)",
+      "PowerShell(terraform fmt:*)",
+      "PowerShell(terraform init:*)",
+      "PowerShell(terraform validate:*)",
+      "PowerShell(terraform plan:*)",
+      "PowerShell(terraform output:*)",
+      "PowerShell(terraform state list:*)",
+      "PowerShell(git status:*)",
+      "PowerShell(git diff:*)",
+      "PowerShell(git log:*)",
+      "PowerShell(git add:*)",
+      "PowerShell(git commit:*)",
+      "PowerShell(docker compose:*)",
+      "PowerShell(aws sts get-caller-identity:*)"
+    ],
+    "ask": [
+      "Bash(terraform apply:*)",
+      "Bash(terraform destroy:*)",
+      "Bash(git push:*)",
+      "Bash(docker push:*)",
+      "Bash(aws cloudwatch set-alarm-state:*)",
+      "PowerShell(terraform apply:*)",
+      "PowerShell(terraform destroy:*)",
+      "PowerShell(git push:*)",
+      "PowerShell(docker push:*)",
+      "PowerShell(aws cloudwatch set-alarm-state:*)"
+    ],
+    "deny": [
+      "Bash(terraform apply -auto-approve:*)",
+      "Bash(terraform destroy -auto-approve:*)",
+      "Bash(git push --force:*)",
+      "PowerShell(terraform apply -auto-approve:*)",
+      "PowerShell(terraform destroy -auto-approve:*)",
+      "PowerShell(git push --force:*)",
+      "Read(./terraform/terraform.tfvars)",
+      "Read(./terraform/terraform.tfstate)",
+      "Read(./terraform/terraform.tfstate.backup)"
+    ]
+  }
+}
