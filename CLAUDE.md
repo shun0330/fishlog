@@ -30,12 +30,14 @@
 - Terraform：AWS provider ~> 6.0、default_tags Project=fishlog
 - SNS トピック（メール購読）＋ CloudWatch アラーム（ALB の Target 5XX、ALARM/OK の両方を通知）
 - terraform/ のファイル：main.tf, variables.tf, outputs.tf, network.tf, security.tf, database.tf, ecr.tf, ecs.tf, alb.tf, sns.tf, monitoring.tf
-- GitHub：shun0330/fishlog（フェーズ5まで push 済み）
+- GitHub：shun0330/fishlog（フェーズ6まで push 済み）
 
 ## 進捗
 - 完了：フェーズ0〜6（環境準備、ローカルCRUD、Terraform土台、ネットワーク、SG・RDS、ECR・ECS・ALB、監視）
 - フェーズ6：2026-11-07 に再作成して、購読承認と set-alarm-state による ALARM→OK の通知メール受信を確認。そのあと destroy 済みで、今は AWS 上に何も無い
-- 残り：フェーズ7（構成図・README・再現確認）
+- 7-1 完了：`docs/architecture.drawio`（Claude Code が作成）と `docs/architecture.png`（作業者が draw.io から書き出し）。PNG は .drawio の最終修正前の版のままで良いと作業者が判断
+- 説明書（非開発者向け、設計判断の深掘りと想定問答つき）は claude.ai の Docs「fishlog 構成説明書」にある。README を書くときの元ネタにする
+- 残り：フェーズ7（README・tfvars.example・再現確認・最終 push）
 - 7-4 の再現確認は、作業者が README を見ながら自分で手を動かして行う（Claude Code はサポート役）。動作確認チェックリストもフェーズ7で作る
 
 ## 残タスク
