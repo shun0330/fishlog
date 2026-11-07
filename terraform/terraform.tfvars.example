@@ -1,0 +1,7 @@
+# このファイルを terraform.tfvars という名前でコピーして、値を入れてください。
+#   Copy-Item terraform.tfvars.example terraform.tfvars
+# terraform.tfvars は .gitignore で除外しています（コミットしないでください）。
+
+# CloudWatch アラームの通知先メールアドレス（必須）
+# apply 後に届く確認メールで購読を承認すると、通知が届くようになります。
+alert_email = ""
