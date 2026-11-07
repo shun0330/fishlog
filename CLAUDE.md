@@ -28,13 +28,15 @@
 - ECR（scan_on_push）→ ECS Fargate（256/512、ログは /ecs/fishlog、DB_PASSWORD は Secrets Manager から注入）
 - ALB → ターゲットグループ（ip、8000、ヘルスチェック /health）→ リスナー 80
 - Terraform：AWS provider ~> 6.0、default_tags Project=fishlog
-- terraform/ のファイル：main.tf, variables.tf, outputs.tf, network.tf, security.tf, database.tf, ecr.tf, ecs.tf, alb.tf
+- SNS トピック（メール購読）＋ CloudWatch アラーム（ALB の Target 5XX、ALARM/OK の両方を通知）
+- terraform/ のファイル：main.tf, variables.tf, outputs.tf, network.tf, security.tf, database.tf, ecr.tf, ecs.tf, alb.tf, sns.tf, monitoring.tf
 - GitHub：shun0330/fishlog（フェーズ5まで push 済み）
 
 ## 進捗
-- 完了：フェーズ0〜5（環境準備、ローカルCRUD、Terraform土台、ネットワーク、SG・RDS、ECR・ECS・ALB）
-- ALB 経由で POST / GET の動作確認済み。確認後はすべて destroy 済みで、今は AWS 上に何も無い
-- 残り：フェーズ6（監視）とフェーズ7（構成図・README・再現確認）
+- 完了：フェーズ0〜6（環境準備、ローカルCRUD、Terraform土台、ネットワーク、SG・RDS、ECR・ECS・ALB、監視）
+- フェーズ6：2026-11-07 に再作成して、購読承認と set-alarm-state による ALARM→OK の通知メール受信を確認。そのあと destroy 済みで、今は AWS 上に何も無い
+- 残り：フェーズ7（構成図・README・再現確認）
+- 7-4 の再現確認は、作業者が README を見ながら自分で手を動かして行う（Claude Code はサポート役）。動作確認チェックリストもフェーズ7で作る
 
 ## 残タスク
 
